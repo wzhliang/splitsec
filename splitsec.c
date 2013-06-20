@@ -109,11 +109,13 @@ int main(int argc, char *argv[])
 			break;
 		}
 
-		if ( table_id_ext == ext )
+		if ( table_id_ext != ext )
 		{
-			dump_section();
+            fprintf(stderr, "Found sub-table %d\n", ext);
+            continue;
 		}
 
+        dump_section();
         cur_sec = section[6];
         last_sec = section[7];
         if ( cur_sec == last_sec )
